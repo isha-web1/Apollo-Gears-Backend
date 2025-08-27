@@ -1,11 +1,20 @@
-import express, { Request, Response } from 'express'
-const app = express()
-const port = 3000
+import cors from 'cors';
+import express, { Application,  } from 'express'
+import cookieParser from 'cookie-parser';
+const app: Application = express();
 
-app.get('/', (req : Request, res : Response) => {
-  res.send('Hello World!')
-})
+//parsers
+app.use(express.json());
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})
+app.use(cors({ origin: ['http://localhost:3000'] }));
+app.use(cookieParser())
+
+
+
+app.get('/', (req, res) => {
+  res.status(200).json({
+    message: 'Welcome to the Apollo Gears API Service',
+  });
+});
+
+export default app;
