@@ -1,6 +1,6 @@
-import { Router } from 'express';
-import { UserRoutes } from '../modules/User/user.route';
-
+import { Router } from "express";
+import { UserRoutes } from "../modules/User/user.route";
+import { RentRoutes } from "../modules/Rent/rent.route";
 
 type TModuleRoutes = {
   path: string;
@@ -10,9 +10,13 @@ type TModuleRoutes = {
 const router = Router();
 
 const moduleRoutes: TModuleRoutes[] = [
-     {
-    path: '/users',
+  {
+    path: "/users",
     route: UserRoutes,
+  },
+  {
+    path: "/rents",
+    route: RentRoutes,
   },
 ];
 
