@@ -1,6 +1,7 @@
 import { Router } from "express";
 import { UserRoutes } from "../modules/User/user.route";
 import { RentRoutes } from "../modules/Rent/rent.route";
+import { CarRoutes } from "../modules/Car/car.route";
 
 type TModuleRoutes = {
   path: string;
@@ -13,6 +14,10 @@ const moduleRoutes: TModuleRoutes[] = [
   {
     path: "/users",
     route: UserRoutes,
+  },
+  {
+    path: '/cars',
+    route: CarRoutes,
   },
   {
     path: "/rents",
